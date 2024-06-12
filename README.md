@@ -37,5 +37,3 @@ Learn how users can sign transactions in both chains with the same wallet, lever
 
 Dr. Alexander Norta is a former associate professor and currently a research dreiven blockchain entrepreneur. Please find more information about 
 Alex on [ETIS.ee](https://www.etis.ee/CV/Alexander_Norta/eng/) and aso on his [LinkedIn](https://www.linkedin.com/in/alexnorta/).
-
-
