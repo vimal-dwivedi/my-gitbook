@@ -15,4 +15,3 @@
 * [Chapter 10](chapter10.md)
 * [Chapter 11](chapter11.md)
 * [Chapter 12](chapter12.md)
-* [Chapter 8](chapter8.md)
