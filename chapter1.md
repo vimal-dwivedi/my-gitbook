@@ -36,18 +36,93 @@ This hybrid approach features native support for Recursive Length Prefix (RLP) t
   <img src="images/Kaon_architecture.png" alt="Figure: 1.1: The Kaon.one conceptual layered architecture with components and their data exchanges." width="600">
 </p>
 
-The architecture depicted above, allows nodes to replace traditional [oracles](https://chain.link/education/blockchain-oracles), using the [Galaxy consensus](https://docs.wanchain.org/technology/galaxy-consensus) to verify information across all mixed-type nodes and collaterals from other chains. An oracle in the context of blockchain technology is a service or mechanism that provides external data to smart contracts on the blockchain. Note that the latter typically cannot access data outside of a blockchain they are deployed on. Oracles act as intermediaries that fetch, verify, and supply smart-contract external data, allowing smart contracts to interact with the real world and execute based on data not natively available on the blockchain. Next, the Galaxy consensus is a sophisticated consensus mechanism used in blockchain networks to achieve reliable and secure data validation, especially in the context of cross-chain transactions. Thus, this consensus model enhances interoperability and overall network efficiency. Key features of the Galaxt consensus are: cross-blockchain data validation; decentralized verification; integration with delegated proof of stake (dPOS), where validators are selected based on the amount of stake they hold or have been delegated by other stakeholders; threshold signature scheme (TSS) that allows multiple parties to collaboratively generate a signature on a transaction without revealing their individual private keys, thus securing cross-chain transactions. Finally, mixed-type nodes are an important component in blockchain architectures that integrate multiple functionalities to improve cross-chain interoperability. These nodes perform multiple roles, often combining the features of standard nodes with additional responsibilities related to cross-chain communication and data handling. The standard node features comprise transaction- and block validation, maintaining a block ledger, and the propagation of transactions and blocks.
+The architecture depicted above, allows nodes to replace traditional [oracles](https://chain.link/education/blockchain-oracles), using the [Galaxy consensus](https://docs.wanchain.org/technology/galaxy-consensus) to verify information across all mixed-type nodes and collaterals from other chains. An oracle in the context of blockchain technology is a service or mechanism that provides external data to smart contracts on the blockchain. Note that the latter typically cannot access data outside of a blockchain they are deployed on. Oracles act as intermediaries that fetch, verify, and supply smart-contract external data, allowing smart contracts to interact with the real world and execute based on data not natively available on the blockchain. 
+
+### 1.1.1 BTC Consensus Layer
+
+Starting from the top of the architecture figure, the top rectangle denotes the BCT consensus layer, which represents the foundational consensus mechanism derived from the Bitcoin blockchain. In the Kaon.one architecture, the BTC Consensus layer leverages these UTXO model benefits of security, parallel processing, and transparency; integrating them with advanced features like native RLP transaction support and off-chain transaction creation and signing. As a Bitcoin side-chain, Kaon.one uses the same private keys, enabling non-custodial mirroring of BTC onto the Kaon chain. This mirrored BTC maintains a tight link to the original, ensuring it can be unwrapped at any time, providing transparency and traceability
+
+### 1.1.2 Node Types and Connections
+
+Beneath the BTC Consensus layer are five distinct types of nodes, each fulfilling a unique role within the Kaon.one architecture. These nodes are integral to the network's operation, ensuring the sound processing and validation of transactions and blocks. The five types of nodes are:
+
+1. **Collator Type Node** (two instances)
+2. **Mixed Type Node** (two instances)
+3. **BTC Normal Node**
+
+#### 1.1.2.1 Collator Type Node
+Collator Type Nodes are specialized nodes that function as intermediaries between the Bitcoin network and the Kaon.one network. These nodes are responsible for collating transactions and ensuring they are accurately represented in the blockchain. By doing so, they facilitate efficient transaction processing and ensure the integrity of the data being transferred between the networks. In the architecture, there are two instances of Collator Type Nodes, which enhances redundancy and reliability.
+
+#### 1.1.2.2 Mixed Type Node
+Mixed Type Nodes have dual functionalities, acting both as collators and validators. These nodes play a pivotal role in processing and forwarding messages from connected chains. Their dual capability allows them to manage cross-chain information effectively through decentralized, consensus-based methods. The inclusion of two instances of Mixed Type Nodes ensures that the network can handle a higher volume of transactions and data, thereby improving overall scalability and performance.
+
+#### 1.1.2.3 BTC Normal Node
+The BTC Normal Node operates purely within the Bitcoin network. Its primary function is to participate in standard Bitcoin operations such as validating blocks and processing transactions. Unlike the other nodes, the BTC Normal Node does not interact with the Kaon.one network's unique features, such as the Galaxy consensus. Instead, it ensures that the fundamental Bitcoin network operations are executed efficiently and securely.
+
+These nodes listed above are interconnected with the BTC Consensus layer through lines labeled "Normal participant, sends and receives blocks and transactions using internal commands." This label indicates that these nodes engage in the regular activities of the Bitcoin network, such as:
+
+1. **Block Validation**: Ensuring that new blocks meet all necessary consensus rules and are added to the blockchain correctly.
+2. **Transaction Processing**: Validating and propagating transactions across the network, ensuring that they are confirmed and included in new blocks.
+
+### 1.1.3 Galaxy consensus
+
+Next, the Galaxy consensus is a sophisticated consensus mechanism used in blockchain networks to achieve reliable and secure data validation, especially in the context of cross-chain transactions. Thus, this consensus model enhances interoperability and overall network efficiency. Key features of the Galaxy consensus are: cross-blockchain data validation; decentralized verification; integration with delegated proof of stake (dPOS), where validators are selected based on the amount of stake they hold or have been delegated by other stakeholders; threshold signature scheme (TSS) that allows multiple parties to collaboratively generate a signature on a transaction without revealing their individual private keys, thus securing cross-chain transactions. 
+
+The architecture integrates the collator- and mixed type nodes with the Galaxy Consensus layer. Specifically:
+- The **Collator Type Nodes** and **Mixed Type Nodes** provide information about transactions and blocks within the network, enhancing the accuracy and efficiency of data processing.
+- These nodes also send signed transactions to the Bitcoin Network using Threshold Signature Scheme (TSS) and secure Multi-Party Computation (sMPC) mechanisms, ensuring secure and verified cross-chain interactions.
+
+The **BTC Normal Node**, however, remains isolated from the Galaxy Consensus interactions, focusing solely on maintaining the integrity and operations within the Bitcoin network.
+
+Within the Galaxy Consensus layer, there are three nested components, each serving a distinct purpose: "BTC/Uni Messages," "Rewards," and "Data."
+
+#### 1.1.3.1 BTC/Uni Messages
+
+The "BTC/Uni Messages" component is responsible for handling communication between the Bitcoin network and the Kaon.one network. This involves ensuring that messages and transactions between Bitcoin (BTC) and the Uni (Kaon.one) networks are accurately transmitted and received. It also includes monitoring and logging events from both networks to maintain consistency and synchronization. Additionally, this component uses the Galaxy consensus mechanism to validate messages, ensuring their authenticity and integrity before further processing.
+
+#### 1.1.3.2 Rewards
+
+The "Rewards" component manages the distribution of incentives within the network. It allocates rewards to validators who successfully validate blocks and transactions, allowing them to earn rewards from block validation, transaction fees, and gas fees. Furthermore, it distributes staking rewards to participants who stake their tokens to support validators, thereby enhancing their chances of selection and contributing to network security. The component also ensures that validators participating in cross-chain transactions receive appropriate compensation for their additional efforts and resources.
+
+#### 1.1.3.3 Data
+
+The "Data" component is tasked with handling and managing the critical data required for network operations. It maintains the current state of the blockchain, including account balances, contract states, and transaction histories. This component also stores data related to the consensus process, encompassing validator selections, block proposals, and voting results. Additionally, it manages data related to cross-chain interactions, ensuring that information from external chains is accurately represented and processed within the Kaon.one network.
+
+### 1.1.4 Normal nodes
+
+Below the Galaxy Consensus layer, the architecture features nodes dedicated to the Kaon network, which play an important roles in maintaining and enhancing the network's functionality. Note that due to historical development reasons, the architecture figure above  The nodes involved are:
+
+1. **Kaon Normal Node** (three instances): These nodes are dedicated to performing standard operations within the Kaon blockchain. They handle routine tasks such as processing transactions, validating blocks, and maintaining the integrity of the blockchain ledger. Kaon Normal Nodes ensure that the network operates smoothly and securely, providing a stable backbone for all blockchain activities.
+
+2. **Mixed Type Node** (two instances): These nodes have dual roles, participating in both the Kaon and Bitcoin networks. Mixed Type Nodes are designed to handle cross-chain interactions and facilitate communication between different blockchain environments. They are essential for enabling seamless interoperability and ensuring that transactions and data can flow smoothly between the Uni network and other blockchain systems.
+
+The connections from the Galaxy Consensus layer to the Kaon network nodes are important for the system's integrated operations and cross-chain capabilities:
+
+- **sMPC Fractions**: This connection supports secure multi-party computations (sMPC) within the network. By distributing the computational load across multiple nodes, the sMPC Fractions ensure that sensitive operations, such as transaction signing and data validation, are performed securely and efficiently. This method enhances the overall security of the network by reducing the risk of single points of failure and enabling robust, decentralized processing of critical tasks.
+
+- **Base BTC Transaction Data**: This connection is responsible for facilitating the sharing of essential Bitcoin transaction data across the Kaon network. By providing access to base BTC transaction data, this link ensures that nodes within the Kaon network have the necessary information to process and validate cross-chain transactions involving Bitcoin. This integration is crucial for maintaining transparency, consistency, and trustworthiness in cross-chain operations, allowing the Kain network to leverage Bitcoin's security and reliability.
 
 
-**TO DO**
+### 1.1.5 dPoS Consensus Layer
 
+At the bottom of the Kaon architecture is the **dPOS Consensus** layer, which governs the overall consensus mechanism through dPOS. This layer is critical in maintaining the integrity and efficiency of the Kaon.one network. It incorporates several components that work together to facilitate seamless blockchain operations and ensure robust security.
 
+The **EVM** component within this layer is pivotal as it supports the execution of smart contracts and complex dApp functionalities. By integrating Ethereum's capabilities into the UTXO model of Kaon.one, it bridges the gap between different blockchain paradigms, enabling sophisticated programmable transactions and automated processes across the network.
 
+The **Mirrors and Inscriptions** component manages the mirroring of tokens and inscription-based tokens from other chains. This ensures seamless cross-chain asset transfers, allowing tokens to be mirrored onto the Kaon.one chain while maintaining a tight linkage to their original chains. This process enhances interoperability and broadens the range of assets that can be utilized within the Kaon.one ecosystem.
+
+The **DeFi** component acts as the central hub for all decentralized finance activities within the network. Leveraging the unique features of Kaon.one, it facilitates a wide range of financial operations such as lending, borrowing, and trading across blockchains. This component is crucial for enhancing the financial inclusivity and accessibility of blockchain technology.
+
+**Gas Rewards** and **Block Rewards** are integral components within the dPoS Consensus layer that ensure validators and participants are properly incentivized for their contributions. Gas rewards are distributed based on the computational resources used for executing transactions and smart contracts, while block rewards are given for the successful validation and inclusion of new blocks in the blockchain. These rewards mechanisms are essential for maintaining network security and encouraging active participation.
+
+The EVM and Mirrors and Inscriptions components are intricately connected to the DeFi component, indicating their integral roles in supporting decentralized financial applications. These connections highlight how smart contracts and mirrored tokens enhance the functionality and versatility of the DeFi ecosystem within Kaon.one. Additionally, these components are linked to the Kaon network nodes, which indicates their participation in standard blockchain operations, ensuring that all parts of the network work in harmony to achieve efficient and secure transaction processing.
+
+<!-- 
 ## 1.2 Rebranding from UniLayer to Kaon.one
 
-The project initially known as [UniLayer](https://unilayer.io) has undergone a strategic rebranding to Kaon.one. This rebranding reflects the platform’s evolved vision and enhanced capabilities, positioning it as a leader in decentralized cross-blockchain innovation. The transition underscores a commitment to advancing the blockchain ecosystem with robust and user-friendly solutions. This commitment is evident in its ongoing efforts to develop and integrate advanced features that enhance the user experience and provide seamless, secure, and efficient cross-blockchain transactions. The rebranding aligns with the platform’s goal of fostering a more interconnected and interoperable blockchain ecosystem, where users can easily and securely exchange assets across different blockchain networks. Rebranding to Kaon.one also involves strengthening the platform’s brand identity and fostering deeper engagement with its community. A strong and recognizable brand is crucial for building trust and credibility in the blockchain space.
+The project initially known as [UniLayer](https://unilayer.io) has undergone a strategic rebranding to Kaon.one. This rebranding reflects the platform’s evolved vision and enhanced capabilities, positioning it as a leader in decentralized cross-blockchain innovation. The transition underscores a commitment to advancing the blockchain ecosystem with robust and user-friendly solutions. This commitment is evident in its ongoing efforts to develop and integrate advanced features that enhance the user experience and provide seamless, secure, and efficient cross-blockchain transactions. The rebranding aligns with the platform’s goal of fostering a more interconnected and interoperable blockchain ecosystem, where users can easily and securely exchange assets across different blockchain networks. Rebranding to Kaon.one also involves strengthening the platform’s brand identity and fostering deeper engagement with its community. A strong and recognizable brand is crucial for building trust and credibility in the blockchain space. -->
 
-## 1.3 Objectives and Vision
+## 1.2 Objectives and Vision
 
 Kaon.one aims to develop a decentralized environment in which diverse blockchain networks interact seamlessly. Thus, the system's objectives are multifaceted, focusing on improved transaction efficiency, cutting considerably operational costs, while supporting the development of innovative third-party dApps. With improved transaction efficiency, Kaon.one wants to realise faster and more reliable value exchanges across different blockchain networks. Another critical objective is the reduction of costs, achieved by an underlying protocol optimization and leveraging state-of-the-art technologies to minimize the cross-chain transaction fees.
 
@@ -55,7 +130,7 @@ Furthermore, Kaon.one emphasis and encourages the development and support of dAp
 
 The long-term Kaon.one vision reaches beyond merely technical improvements and seeks to democratize blockchain technology access. This vision ensures the participation of users from all backgrounds in the targeted decentralized economy. By prioritizing user experience and security, Kaon.one aims to build an ecosystem that, on the one hand, meets the current needs of the blockchain community, and on the other hand, also anticipates and addresses future challenges. Through the commitment to interoperability, scalability, and user empowerment, Kaon.one aims to be leading in blockchain innovation, improving considerably the adoption and integration of decentralized technologies in a broad spectrum of industries on a global scale.
 
-## 1.4 Innovations of Kaon.one
+## 1.3 Innovations of Kaon.one
 
 Kaon.one introduces several pioneering innovations that differentiate this system apart from other existing blockchain solutions that will be expanded upon in the respective subsequent chapters:
 
