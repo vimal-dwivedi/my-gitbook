@@ -1,5 +1,8 @@
 # 1. Introduction
 
+In the ever-evolving world of cryptocurrency, the complexities and challenges associated with trading and managing Bitcoin (BTC) have become increasingly apparent. Unilayer emerges as a revolutionary solution addressing several critical pain points that currently plague the Bitcoin network. This introduction delves into these challenges and how Unilayer's innovative approach aims to resolve them, providing a seamless and secure trading experience for users. Building on this foundation, the Kaon.one project continues these innovations, significantly enhancing decentralized cross-blockchain interactions for asset exchanges.
+
+
 Kaon.one is a novel blockchain project with the goal to considerably improve decentralized cross-blockchain interactions for asset exchanges. Built on the foundation of the [UniLayer system](https://unilayer.io), the successor Kaon.one system comprises innovative technological innovations to offer a seamless, secure, and efficient system for decentralized applications (dApp). Kaon.one provides cross-blockchain transactions with interoperability capabilities for asset exchanges between different blockchain networks. The core architecture of Kaon.one combines the advantages of Bitcoin's [Unspent Transaction Output](https://coincentral.com/utxo-beginners-explainer/) (UTXO) protocol and the Ethereum Virtual Machine (EVM) models. 
 
 **UTXO Protocol**
