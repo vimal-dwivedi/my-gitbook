@@ -17,7 +17,7 @@ The project was initiated with the goal of enhancing security, efficiency, and s
 Below is an alphabetically ordered list of key terminologies and concepts:
 
 
-###UTXO Protocol
+### UTXO Protocol
 
 To understand the key principles of how Kaon.one performs operations it is important to firstexpand on fundamental principles of how UTXO transactions are carried out versus the Ethereum account model. Briefly, the UTXO protocol is a foundational part of many blockchain systems, including the first usecase of modern blockchain, i.e., Bitcoin. The UTXO protocol denotes the state of a blockchain by tracking unspent transaction outputs that are the remaining portions of a cryptocurency transaction. This unspet transaction output is available as inputs for future transactions.
 
