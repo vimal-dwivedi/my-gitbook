@@ -14,18 +14,18 @@ In the ever-evolving world of cryptocurrency, the complexities and challenges as
 8. **Secure Yield Sources:** Identifying secure sources of yield on BTC involves navigating existing options and their associated trade-offs.
 9. **Bridge Vulnerabilities:** In the wake of numerous high-profile hacks between 2020 and 2022 that devastated some of the most utilized bridges—including Wormhole, Multichain, the Punks Bridge, and Rainbow Bridge—a pattern of vulnerability in bridge design and construction became apparent. In 2022 alone, bridge hacks accounted for 70% of the total cyberattacks in the blockchain industry, resulting in a cumulative financial loss of $2 billion. This highlighted the urgent need for more secure and reliable cross-blockchain interactions.
 
-## Kao.one's General Solution to overcome the Pain Points discussed above: 
+## Kaon.one's General Solution to overcome the Pain Points discussed above: 
 
-Kao.one proposes leveraging an L1 chain with an open architecture as a transfer provider, offering several key capabilities:
+Kaon.one proposes leveraging an L1 chain with an open architecture as a transfer provider, offering several key capabilities:
 
 1. **Platform Flexibility:** Users can access any trading platform on an EVM-compatible BTC side chain, directly purchase BTC using Metamask, and send it to their Bitcoin wallet through specific OP_CODEs or smart contract addresses.
 2. **L1 Chain Utilization:** The use of an L1 chain with open architecture as a transfer provider ensures transparency and security.
-3. **Integration with Bitcoin:** Kao.one maintains its identity within the Bitcoin family by spreading nodes publicly and allowing anyone to become a validator.
-4. **Mirrored BTC Trading:** Facilitating the trading of mirrored BTC on Uniswap implementation within the Kao.one chain.
+3. **Integration with Bitcoin:** Kaon.one maintains its identity within the Bitcoin family by spreading nodes publicly and allowing anyone to become a validator.
+4. **Mirrored BTC Trading:** Facilitating the trading of mirrored BTC on Uniswap implementation within the Kaon.one chain.
 
-## Kao.one's Unique Capabilities
+## Kaon.one's Unique Capabilities
 
-Kao.one stands out with its unique set of capabilities:
+Kaon.one stands out with its unique set of capabilities:
 
 1. **BTC Side Chain:** Uni operates as a side chain of BTC, based on the Bitcoin transaction model while offering full EVM support, a combination unique to Uni.
 2. **Deep Integration with Bitcoin:** Uni's chain is not only EVM-compatible but also includes sigscript similar to the Bitcoin Network, enabling it to function as a deeply connected side chain.
