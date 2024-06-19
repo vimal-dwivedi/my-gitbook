@@ -35,10 +35,6 @@ In the account-based model, a user initiates a transaction in which the amount o
 
 The account model also has several advantages. First, this is a fairly simple and efficient model for the execution of smart contracts.  Second, the account model allows for direct state updates and thereby simplifies contract executions and state management. Additionally, the account model supports the concept of gas being a unit to measure the computational operations-execution effort. Gas fees are paid in ETH and incentivce the miners to include transactions in blocks. Gas is also a mechanism that prevents the abuse of computational resources on the Ethereum network.
 
-### Decentralized Finance (DeFi)
-
-Blockchain technologies are used to create a parallel emerging financial system as an improved decantralized versus versus the traditional legacy financial system. [DeFi](https://aws.amazon.com/blockchain/what-is-defi/) aims to eliminate the need for trusted third-party intermediaries such as banks, brokers, and exchanges. Instead, DeFi provides peer-to-peer (P2P) financial services that are accessible to anyone with an internet connection. Allegorically expressed, while legacy finance takes over the control of the customers' private keys in a centralized business model, DeFi gives the private keys back to the customers into their respective control.
-
 
 ### Atomic Swaps
 
